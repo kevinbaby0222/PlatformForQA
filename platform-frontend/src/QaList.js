@@ -21,9 +21,6 @@ class QaList extends Component {
                 <td style={{ whiteSpace: 'nowrap' }}>{qa.questioncontent}</td>
                 <td>{qa.askerid}</td>
                 <td>
-                    {/*<ButtonGroup>*/}
-                    {/*    <Button color="danger">删除</Button>*/}
-                    {/*</ButtonGroup>*/}
                 </td>
             </tr>
         });
@@ -36,7 +33,7 @@ class QaList extends Component {
                         <thead>
                         <tr>
                             <th width={"30%"}>Question Content</th>
-                            <th width={"30%"}>Asker ID</th>
+                            <th width={"30%"}>User ID</th>
                             <th width={"40%"}>Actions</th>
                         </tr>
                         </thead>

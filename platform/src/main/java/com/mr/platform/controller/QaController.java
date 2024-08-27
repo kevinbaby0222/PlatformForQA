@@ -22,12 +22,12 @@ public class QaController {
 
     @Operation(summary = "根据UserID获取该用户问的Qa对", description = "输入Userid")
     @GetMapping("/{userid}")
-    public ResponseEntity<String> selectListByUserId(@PathVariable int userid) {
+    public ResponseEntity<List<Qa>> selectListByUserId(@PathVariable int userid) {
         List<Qa> qas = qaMapper.selectQuestionsByAskerId(userid);
-        if (qas != null) {
-            return ResponseEntity.ok(qas.toString());
+        if (qas.isEmpty()) {
+            return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("未找到QA对");
+            return ResponseEntity.ok(qas);
         }
     }
 
@@ -44,10 +44,10 @@ public class QaController {
 
     @Operation(summary = "添加QA对", description = "需要Body中以表单格式输入")
     @PostMapping()
-    public ResponseEntity<String> insertQa(String questioncontent, int askerid) {
-        int savedRows = qaMapper.save(questioncontent, askerid);
+    public ResponseEntity<String> insertQa(@RequestBody Qa qa) {
+        int savedRows = qaMapper.save(qa.getQuestioncontent(), qa.getAskerid());
         if (savedRows > 0) {
-            return ResponseEntity.ok("添加成功");
+            return ResponseEntity.status(HttpStatus.CREATED).body("添加成功");
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("添加失败");
         }
