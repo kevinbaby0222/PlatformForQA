@@ -1,14 +1,22 @@
 package com.mr.platform.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mr.platform.entity.Qa;
+import com.mr.platform.service.IQaService;
+import com.mr.platform.service.IUserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import com.mr.platform.mapper.QaMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -22,11 +30,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/qa")
 public class QaController {
+    @Autowired
     private QaMapper qaMapper;
+    @Autowired
+    private IQaService qaService;
 
-    public QaController(QaMapper qaMapper) {
-        this.qaMapper = qaMapper;
-    }
 
     @Operation(summary = "根据UserID获取该用户问的Qa对", description = "输入Userid")
     @GetMapping("/{userid}")
@@ -80,6 +88,19 @@ public class QaController {
             return ResponseEntity.ok("删除成功");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("未找到QA对");
+        }
+    }
+
+    @Operation(summary = "Playground", description = "自己玩")
+    @GetMapping("/service")
+    public ResponseEntity<List<Qa>> QaOps() {
+        LambdaQueryWrapper<Qa> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.like(Qa::getQuestioncontent, "我");
+        Collection<Qa> qas = qaService.list(queryWrapper);
+        if (qas != null) {
+            return ResponseEntity.ok(qas.stream().toList());
+        } else {
+            return ResponseEntity.noContent().build();
         }
     }
 
