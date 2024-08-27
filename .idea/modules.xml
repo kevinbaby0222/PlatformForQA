@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/PlatformForQA.iml" filepath="$PROJECT_DIR$/.idea/PlatformForQA.iml" />
-      <module fileurl="file://$PROJECT_DIR$/platform-frontend.iml" filepath="$PROJECT_DIR$/platform-frontend.iml" />
     </modules>
   </component>
 </project>

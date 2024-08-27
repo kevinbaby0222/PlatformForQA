@@ -35,10 +35,10 @@ public class UserController {
         }
     }
     @GetMapping("/all")
-    @Operation(summary = "查询用户及其问题信息", description = "通过用户ID查询用户及其所有问题")
-    public ResponseEntity<List<User>> queryUserAndQuestions(int userid) {
+    @Operation(summary = "查询用户", description = "通过用户ID查询用户")
+    public ResponseEntity<User> queryUserAndQuestions(int userid) {
 
-        List<User> user = userMapper.selectUserAndQuestionsByUserId(userid);
+        User user = userMapper.selectById(userid);
 
         if (user == null) {
 
