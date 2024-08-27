@@ -3,12 +3,19 @@ package com.mr.platform.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
+@Tag(name = "User对象", description = "User表")
 @TableName("public.qa")
 @Component
-public class Qa {
-    @TableId(type = IdType.AUTO)
+public class Qa implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "qaid", type = IdType.AUTO)
     private int qaid;
 
     private String questioncontent;
@@ -42,9 +49,9 @@ public class Qa {
     @Override
     public String toString() {
         return "Qa{" +
-                "qaid=" + qaid +
-                ", questioncontent='" + questioncontent + '\'' +
-                ", askerid=" + askerid +
-                '}';
+                "qaid = " + qaid +
+                ", questioncontent = " + questioncontent +
+                ", askerid = " + askerid +
+                "}";
     }
 }

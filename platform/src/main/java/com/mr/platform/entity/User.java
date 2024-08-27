@@ -6,12 +6,14 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 @Component
 @TableName("public.user")
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
     @TableId(type = IdType.AUTO)
     private int userid;
 

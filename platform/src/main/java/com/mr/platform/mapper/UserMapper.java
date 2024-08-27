@@ -10,7 +10,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author MR-DMA
+ * @since 2024-08-27
+ */
 @Mapper
 @Repository
 @Component

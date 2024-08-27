@@ -10,6 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author MR-DMA
+ * @since 2024-08-27
+ */
 @Tag(name = "QaController", description = "QA对接口管理")
 @RestController
 @RequestMapping("/qa")
