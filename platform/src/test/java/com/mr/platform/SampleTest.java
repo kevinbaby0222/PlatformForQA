@@ -15,7 +15,7 @@ public class SampleTest {
     private UserMapper userMapper;
 
     @Test
-    public void testSelect(){
+    public void testSelect() {
         System.out.println(("----- selectAll method test ------"));
         List<User> userList = userMapper.selectList(null);
         Assert.isTrue(3 == userList.size(), "");

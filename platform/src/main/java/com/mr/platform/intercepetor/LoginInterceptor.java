@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(final HttpServletRequest request, final HttpServletResponse response, final Object handler)
-throws Exception {
+            throws Exception {
         System.out.println("LoginInterceptor preHandle");
         return true;
     }

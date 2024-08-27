@@ -13,9 +13,9 @@ spring:
       #热部署
       enabled: true
       additional-paths: src/main/java
-#      exclude: static/**
+  #      exclude: static/**
   mvc:
-#    static-path-pattern: /static/**
+  #    static-path-pattern: /static/**
   web:
     resources:
       static-locations: /upload/

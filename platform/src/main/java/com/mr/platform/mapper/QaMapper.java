@@ -2,7 +2,10 @@ package com.mr.platform.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.mr.platform.entity.Qa;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +13,7 @@ import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author MR-DMA

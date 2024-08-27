@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class PlatformController {
 
-//  http://localhost:2222/hello?nickname=Clem&team=liquid
-    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    //  http://localhost:2222/hello?nickname=Clem&team=liquid
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello(String nickname, String team) {
         System.out.println(team);
         return "欢迎来到数据平台," + nickname;

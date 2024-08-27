@@ -1,7 +1,6 @@
 package com.mr.platform.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-
 import com.mr.platform.entity.Qa;
 import com.mr.platform.entity.User;
 import org.apache.ibatis.annotations.*;
@@ -12,7 +11,7 @@ import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author MR-DMA
