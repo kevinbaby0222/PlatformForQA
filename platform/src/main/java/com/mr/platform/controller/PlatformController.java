@@ -3,6 +3,8 @@ package com.mr.platform.controller;
 import com.mr.platform.entity.Qa;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 public class PlatformController {
 
@@ -32,4 +34,14 @@ public class PlatformController {
         System.out.println("问题内容:" + qa.getQuestioncontent());
         return qa.toString();
     }
+    @PostMapping("/postTestMarkdown")
+    public String postTestMarkdown(@RequestBody Map<String, String> data) {
+        // 从Map中获取Markdown内容
+        String markdown = data.get("markdown");
+        // 打印Markdown内容
+        System.out.println("Markdown内容: " + markdown);
+        // 返回一个简单的成功消息
+        return "Markdown content received";
+    }
+
 }
