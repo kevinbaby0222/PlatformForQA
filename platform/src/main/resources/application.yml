@@ -5,9 +5,10 @@ spring:
     password: MRImaniac
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.postgresql.Driver
-    mybatis-plus:
-      configuration:
-        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 配置MyBatis日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   devtools:
     restart:
       #热部署
