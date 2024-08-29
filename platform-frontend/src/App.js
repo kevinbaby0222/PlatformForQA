@@ -23,28 +23,24 @@ function App() {
     };
 
     const sendToBackend = async (markdownContent) => {
-        // 尝试将markdownContent转换为JSON字符串
-        const jsonContent = JSON.stringify({ markdown: markdownContent });
-
-        // 验证JSON字符串是否有效
         try {
-            JSON.parse(jsonContent);
-        } catch (error) {
-            console.error('Error: Invalid JSON content:', error);
-            return; // 或者抛出错误，取决于你的需求
-        }
-
-        try {
-            await fetch('http://localhost:2222/postTestMarkdown', {
+            const response = await fetch('http://localhost:2222/postTestMarkdown', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: jsonContent,
+                body: JSON.stringify({ markdown: markdownContent }),
             });
-            console.log('Data sent to backend.');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            return result;
         } catch (error) {
             console.error('Error sending data to backend:', error);
+            throw error; // 抛出错误，以便调用者可以处理它
         }
     };
 

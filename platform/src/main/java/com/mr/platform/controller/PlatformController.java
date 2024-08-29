@@ -41,7 +41,7 @@ public class PlatformController {
         // 打印Markdown内容
         System.out.println("Markdown内容: " + markdown);
         // 返回一个简单的成功消息
-        return "Markdown content received";
+        return "Markdown content received" + markdown;
     }
 
 }
