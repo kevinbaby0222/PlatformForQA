@@ -1,7 +1,23 @@
 # PlatformForQA
 
-![Platform (1).PNG](img%2FPlatform%20%281%29.PNG)
+![Collect1.png](img%2FCollect1.png)
+![Collect2.png](img%2FCollect2.png)
+![Collect3.png](img%2FCollect3.png)
+![Framework.png](img%2FFramework.png)
+![Runtime.png](img%2FRuntime.png)
+![Topology.png](img%2FTopology.png)
+![WebPage.png](img%2FWebPage.png)
 
-![Platform (2).PNG](img%2FPlatform%20%282%29.PNG)
-
-![Platform (3).PNG](img%2FPlatform%20%283%29.PNG)
+![BlockDiagram.png](img%2FBlockDiagram.png)
+| 阶段       | 服务对象               | 使用场景                                                         | 提供功能                                                         |
+|----------|---------------------|--------------------------------------------------------------|--------------------------------------------------------------|
+| 知识收集阶段 | 内嵌库                 | APPD 研发、测试工程师                                           | 员工上传磁共振书籍和公众号推文进入内嵌库                                 |
+|          | 检索库                 | APFD/APFS/DMA/SYM 研发、测试工程师                              | 提问人员和回答人员有各自的入口来填充、修改检索库                             |
+|          | 原文库                 | CAE/PMK 研发、测试工程师                                        | 员工将产品白皮书、原理文档转换成Word文档进入原文库                           |
+|          |                      |                                                              | 提供兼有图文的半结构化文档上传，集成大模型拆解文本分离图片，并要求录入场强/License/软件版本等元信息 |
+| RAG智能体运行阶段 | 检索库                 | 数字脑等智能体应用                                              | 在访问智能体时，数字脑通过检索库进行检索并快速响应                             |
+|          | 原文库                 | 数字脑                                                         | 在用户提问场景中，原文库提供原始文档出处，做到追本溯源                           |
+|          |                      |                                                              | 提供问答对，表格等结构化文档上传，集成文本向量化模型，并要求录入场强/License/软件版本等元信息 |
+|          |                      |                                                              | 提供PDF等非结构化文档上传，并永久化存储Word文档，并要求录入场强/License/软件版本等元信息 |
+|          |                      |                                                              | 提供高响应速度，信息隔离的检索接口和向量数据库存储方式，接口根据场景场强/License/软件版本返回对应信息 |
+|          |                      |                                                              | 存储原始Word文档，建立与检索库的索引，接口根据场景场强/License/软件版本返回文档           |
