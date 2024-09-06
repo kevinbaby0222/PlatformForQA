@@ -5,8 +5,10 @@ import com.mr.platform.mapper.UserMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Map;
@@ -49,6 +51,21 @@ public class UserController {
         } else {
 
             return ResponseEntity.ok(user);
+        }
+    }
+
+    @PostMapping()
+    @Operation(summary = "添加新用户", description = "通过用户名添加新用户")
+    public ResponseEntity<String> addUser(String username) {
+        int result = userMapper.save(username);
+
+        // 假设 insert 方法返回影响的行数，如果插入成功则返回 1
+        if (result > 0) {
+            // 插入成功，返回新建的用户信息，HTTP状态码为201 Created
+            return new ResponseEntity<>(username, HttpStatus.CREATED);
+        } else {
+            // 插入失败，可以返回错误信息，HTTP状态码为400 Bad Request
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to add user");
         }
     }
 

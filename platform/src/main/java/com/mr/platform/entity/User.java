@@ -15,7 +15,7 @@ import java.util.List;
 
 @Data
 @Component
-@TableName("public.user")
+@TableName("public.t_user")
 public class User implements Serializable {
     @TableId(type = IdType.AUTO)
     private int userid;

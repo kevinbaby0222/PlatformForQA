@@ -33,4 +33,7 @@ public interface UserMapper extends BaseMapper<User> {
     @Select("SELECT q.* FROM qa q WHERE q.askerid = #{userid}")
     List<Qa> selectQuestionsByAskerId(int userid);
 
+    @Insert("INSERT INTO t_user (username) VALUES(#{username})")
+    int save(String username);
+
 }
